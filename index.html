@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encoded Message</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            /* keep content at the top */
-            align-items: center;
-            /* center horizontally */
-            padding-top: 100px;
-            /* distance from top */
-            background-color: #000000;
-            font-family: monospace;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Index</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;  /* center vertically */
+      align-items: center;      /* center horizontally */
+      background-color: #000000;
+      font-family: monospace;
+    }
 
-        .code {
-            font-size: 1.2rem;
-            text-align: center;
-            background: #222;
-            color: #0f0;
-            padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-            /* space between code and link */
-        }
+    .container {
+      background: #222;
+      color: #0f0;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
 
-        a {
-            color: #0077cc;
-            text-decoration: none;
-            font-size: 1rem;
-        }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    a {
+      display: block;
+      color: #0f0;
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #00bfff;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="code">
-        110011 110100 000101 010001 / 110010 010001 000101 010001 110110 /
-        001001 110010 / 010101 100101 000011 001001 110010 001001 000101 111111 000101
-    </div>
-
-    <a href="cipher.html">Go to Cipher Page</a>
+  <div class="container">
+    <h1>Puzzle Pages</h1>
+    <a href="puzzle.html">Cipher Puzzle</a>
+    <a href="math.html">Logic Puzzle</a>
+    <a href="sequence.html">Number Sequence Puzzle</a>
+    <a href="square.html">Square Hole Puzzle</a>
+    <a href="chess.html">Chess Puzzle</a>
+  </div>
 </body>
-
-</html> 
+</html>

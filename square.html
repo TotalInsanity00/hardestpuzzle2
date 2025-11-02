@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><!-- Puzzle Title --></title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;   /* center horizontally */
+      align-items: flex-start;   /* near top */
+      padding-top: 80px;
+      background-color: #000000;
+      font-family: monospace;
+    }
+    .card {
+      background: #222;
+      color: #0f0;
+      padding: 24px 32px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: min(100%, 980px);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 16px 0;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #fff; /* clean border contrast */
+      border-radius: 8px;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 16px;
+      color: #0f0;
+      text-decoration: none;
+    }
+    .back:hover { color: #00bfff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Split the numbers of how many squares there are and add them.</h1>
+    <img src="square.png" alt="Square Puzzle">
+    <a class="back" href="index.html">⬅ Back to Index</a>
+  </div>
+</body>
+</html>
