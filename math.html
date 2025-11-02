@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puzzle</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;   /* center horizontally */
+      align-items: flex-start;   /* position near top */
+      padding-top: 80px;         /* adjust distance from top */
+      background-color: #000000;
+      font-family: monospace;
+    }
+    .card {
+      background: #222;
+      color: #0f0;
+      padding: 24px 32px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 800px;
+      width: calc(100% - 40px);
+      line-height: 1.6;
+      white-space: pre-wrap; /* keep manual line breaks readable */
+    }
+    .title {
+      font-size: 1.2rem;
+      margin: 0 0 12px 0;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .body {
+      font-size: 1rem;
+    }
+    .body ul {
+      margin: 8px 0 0 0;
+      padding-left: 20px;
+    }
+    .body li {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="title">Logic Puzzle</h1>
+    <div class="body">
+Find the <strong>single digit</strong> <code>d</code> (from 0–9) that satisfies <strong>all</strong> of the following:
+
+1) <code>d</code> is <strong>composite</strong> and also a <strong>perfect square</strong>.
+2) The <strong>sum of its proper divisors</strong> is a <strong>perfect square</strong>.
+3) If you <strong>double</strong> <code>d</code>, the <strong>sum of the digits</strong> of the result equals <code>d</code>.
+    </div>
+  </div>
+</body>
+</html>
