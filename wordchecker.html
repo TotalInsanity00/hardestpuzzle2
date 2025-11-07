@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Checker</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 100px;
+      background-color: #000;
+      font-family: monospace;
+    }
+
+    .card {
+      background: #222;
+      color: #0f0;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: center;
+      width: min(90%, 600px);
+    }
+
+    h1 {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    input {
+      background: #111;
+      border: 1px solid #0f0;
+      color: #0f0;
+      font-family: monospace;
+      padding: 10px;
+      width: 80%;
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    button {
+      background: #0f0;
+      color: #111;
+      border: none;
+      padding: 10px 20px;
+      font-family: monospace;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #00bfff;
+      color: #fff;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1rem;
+      min-height: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Enter Your Code</h1>
+    <input type="text" id="codeInput" placeholder="Enter code here">
+    <br>
+    <button onclick="checkCode()">Check</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const encoded = [66, 123, 117, 118, 116];
+
+    function decode(arr) {
+      return arr.map(c => String.fromCharCode(c + 1)).join('');
+    }
+
+    const secret = decode(encoded);
+
+    function checkCode() {
+      const input = document.getElementById('codeInput').value.trim().toLowerCase();
+      const message = document.getElementById('message');
+
+      if (input === secret.toLowerCase()) {
+        message.textContent = "✅ Correct! You’ve awakened the code.";
+      } else {
+        message.textContent = `❌ Not quite.`;
+      }
+    }
+  </script>
+</body>
+</html>
