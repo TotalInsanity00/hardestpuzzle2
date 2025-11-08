@@ -15,7 +15,6 @@
       background-color: #000;
       font-family: monospace;
     }
-
     .card {
       background: #222;
       color: #0f0;
@@ -25,14 +24,12 @@
       text-align: center;
       width: min(90%, 600px);
     }
-
     h1 {
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
-
     input {
       background: #111;
       border: 1px solid #0f0;
@@ -45,7 +42,6 @@
       margin-bottom: 16px;
       text-align: center;
     }
-
     button {
       background: #0f0;
       color: #111;
@@ -55,17 +51,8 @@
       cursor: pointer;
       border-radius: 4px;
     }
-
-    button:hover {
-      background: #00bfff;
-      color: #fff;
-    }
-
-    .message {
-      margin-top: 20px;
-      font-size: 1rem;
-      min-height: 1.2em;
-    }
+    button:hover { background: #00bfff; color: #fff; }
+    .message { margin-top: 20px; font-size: 1rem; min-height: 1.2em; }
   </style>
 </head>
 <body>
@@ -73,29 +60,43 @@
     <h1>Enter Your Code</h1>
     <input type="text" id="codeInput" placeholder="Enter code here">
     <br>
-    <button onclick="checkCode()">Check</button>
+    <button id="checkBtn">Check</button>
     <div class="message" id="message"></div>
   </div>
 
   <script>
-    const encoded = [66, 123, 117, 118, 116];
+    const TARGET_HASH = "877d41bc540c57e06ac1f4d3edfd59e5d3651402500a4336e26f50572fcb9389";
 
-    function decode(arr) {
-      return arr.map(c => String.fromCharCode(c + 1)).join('');
+    async function sha256Hex(str) {
+      const enc = new TextEncoder().encode(str);
+      const buf = await crypto.subtle.digest('SHA-256', enc);
+      const bytes = new Uint8Array(buf);
+      return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    const secret = decode(encoded);
+    function normalize(s) {
+      // Trim, collapse spaces, strip non-letters, lowercase.
+      return s.trim().toLowerCase().replace(/[^a-z]/g, '');
+    }
 
-    function checkCode() {
-      const input = document.getElementById('codeInput').value.trim().toLowerCase();
+    async function checkCode() {
+      const input = document.getElementById('codeInput').value.toLowerCase();;
       const message = document.getElementById('message');
 
-      if (input === secret.toLowerCase()) {
-        message.textContent = "✅ Correct! You’ve awakened the code.";
+      const cleaned = normalize(input);
+      const hash = await sha256Hex(cleaned);
+
+      if (hash === TARGET_HASH) {
+        message.textContent = "✅ Correct! You’ve unlocked the door... ping @coaches in your voting channel to find out whats inside.";
       } else {
-        message.textContent = `❌ Not quite.`;
+        message.textContent = `❌ Not quite: ${input}`;
       }
     }
+
+    document.getElementById('checkBtn').addEventListener('click', checkCode);
+    document.getElementById('codeInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') checkCode();
+    });
   </script>
 </body>
 </html>
